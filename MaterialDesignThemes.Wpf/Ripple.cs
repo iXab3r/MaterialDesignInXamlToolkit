@@ -12,7 +12,8 @@ namespace MaterialDesignThemes.Wpf
         public const string TemplateStateMousePressed = "MousePressed";
         public const string TemplateStateMouseOut = "MouseOut";
 
-        private static readonly HashSet<Ripple> PressedInstances = new HashSet<Ripple>();
+        [ThreadStatic] private static HashSet<Ripple>? pressedInstances;
+        private static HashSet<Ripple> PressedInstances => pressedInstances ??= new HashSet<Ripple>();
 
         static Ripple()
         {
@@ -62,7 +63,7 @@ namespace MaterialDesignThemes.Wpf
         {
             foreach (var ripple in PressedInstances.ToList())
             {
-                var relativePosition = ripple.Dispatcher.CheckAccess() ? Mouse.GetPosition(ripple) : ripple.Dispatcher.Invoke(() => Mouse.GetPosition(ripple));
+                var relativePosition = Mouse.GetPosition(ripple);
                 if (relativePosition.X < 0
                     || relativePosition.Y < 0
                     || relativePosition.X >= ripple.ActualWidth
