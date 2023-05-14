@@ -62,7 +62,7 @@ namespace MaterialDesignThemes.Wpf
         {
             foreach (var ripple in PressedInstances.ToList())
             {
-                var relativePosition = Mouse.GetPosition(ripple);
+                var relativePosition = ripple.Dispatcher.CheckAccess() ? Mouse.GetPosition(ripple) : ripple.Dispatcher.Invoke(() => Mouse.GetPosition(ripple));
                 if (relativePosition.X < 0
                     || relativePosition.Y < 0
                     || relativePosition.X >= ripple.ActualWidth
