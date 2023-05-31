@@ -18,6 +18,7 @@
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
     <Setter Property="Padding" Value="1" />
+    <Setter Property="Focusable" Value="True"/>
     <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
     <Setter Property="ScrollViewer.PanningMode" Value="Both" />
     <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
@@ -33,7 +34,7 @@
                           Padding="{TemplateBinding Padding}"
                           Background="{TemplateBinding Background}"
                           CanContentScroll="false"
-                          Focusable="false"
+                          Focusable="{TemplateBinding Focusable}"
                           HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                           VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">

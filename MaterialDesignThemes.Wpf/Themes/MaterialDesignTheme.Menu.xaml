@@ -11,7 +11,7 @@
                                                IsNotEmptyValue="Visible" />
   <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
 
-  <ContextMenu x:Key="MaterialDesignDefaultContextMenu" FontFamily="{Binding PlacementTarget.FontFamily, RelativeSource={RelativeSource Self}}" x:Shared="False">
+  <ContextMenu x:Key="MaterialDesignDefaultContextMenu" FontFamily="{Binding PlacementTarget.FontFamily, RelativeSource={RelativeSource Self}}">
     <MenuItem Command="Cut">
       <MenuItem.Icon>
         <wpf:PackIcon Kind="ContentCut" />
